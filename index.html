@@ -85,9 +85,19 @@
   window.onload = sendHeight;
   window.onresize = sendHeight;
 
-  var observer = new MutationObserver(sendHeight);
-  observer.observe(document.body, { childList: true, subtree: true, attributes: true });
+  document.addEventListener('click', function() {
+    setTimeout(sendHeight, 50);
+    setTimeout(sendHeight, 200);
+    setTimeout(sendHeight, 500);
+  }, true);
+
+  var observer = new MutationObserver(function() {
+    setTimeout(sendHeight, 50);
+    setTimeout(sendHeight, 300);
+  });
+  observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class'] });
 </script>
+
 
 
 </body>

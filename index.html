@@ -76,5 +76,13 @@
     </div>
   </div>
 </div>
+ <script>
+  function sendHeight() {
+    window.parent.postMessage({ height: document.body.scrollHeight }, '*');
+  }
+  window.onload = sendHeight;
+  window.onresize = sendHeight;
+</script>
+
 </body>
 </html>

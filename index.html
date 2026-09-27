@@ -8,43 +8,54 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { margin: 0; padding: 0; background: transparent; font-family: 'Georgia', serif; }
   .nav-main {
-    display: flex; flex-wrap: wrap; gap: 6px;
-    padding: 12px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 8px; padding: 14px;
     background: linear-gradient(135deg, #1a1a2e, #0f3460);
     border: 1px solid rgba(255,255,255,0.12);
     border-radius: 14px;
     box-shadow: 0 4px 24px rgba(0,0,0,0.4);
   }
   .nav-item {
-    display: flex; align-items: center; gap: 6px;
-    padding: 8px 14px; font-size: 13px; color: #a0a0b0;
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 16px; font-size: 14px; color: #a0a0b0;
     cursor: pointer; background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.12);
     border-radius: 10px; transition: all 0.2s;
   }
   .nav-item:hover { background: rgba(255,255,255,0.1); color: #fff; }
   .nav-section {
-    margin-top: 6px; padding: 10px 12px;
-    background: linear-gradient(135deg, #16213e, #0f3460);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 14px;
+    grid-column: 1 / -1; margin-top: 6px;
+    padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.1);
   }
-  .nav-section-title {
-    font-size: 13px; color: #6ba6ff; margin-bottom: 6px; font-weight: bold;
+  .nav-section-header {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px; padding: 10px 16px; font-size: 14px; color: #6ba6ff;
+    cursor: pointer; background: rgba(107,166,255,0.08);
+    border: 1px solid rgba(107,166,255,0.2);
+    border-radius: 10px; user-select: none;
   }
-  .nav-sub { display: flex; flex-wrap: wrap; gap: 6px; }
+  .nav-section-arrow { font-size: 12px; transition: transform 0.25s; }
+  .nav-sub {
+    display: none; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 8px; margin-top: 8px;
+  }
   .nav-sub-item {
-    display: flex; align-items: center; gap: 6px;
-    padding: 6px 12px; font-size: 12px; color: #a0a0b0;
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 14px; font-size: 13px; color: #a0a0b0;
     cursor: pointer; background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 8px; transition: all 0.2s;
   }
   .nav-sub-item:hover { background: rgba(255,255,255,0.08); color: #fff; }
+  .nav-title {
+    grid-column: 1 / -1; font-size: 15px; color: #f5f5f5;
+    font-weight: bold; letter-spacing: 1px; padding: 4px 4px 8px;
+  }
 </style>
 </head>
 <body>
 <div class="nav-main">
+  <div class="nav-title">🧭 Навигация по разделам</div>
   <div class="nav-item" onclick="window.open('https://sites.google.com/view/tverskoy-pses','_blank')">🏠 Главная</div>
   <div class="nav-item" onclick="window.open('https://sites.google.com/view/tverskoy-pses/стажировка-отдела-псэс','_blank')">📋 Стажировка</div>
   <div class="nav-item" onclick="window.open('https://sites.google.com/view/tverskoy-pses/система-баллов','_blank')">⭐ Баллы</div>
@@ -53,22 +64,28 @@
   <div class="nav-item" onclick="window.open('https://sites.google.com/view/tverskoy-pses/дата-и-время-проведения-проверок','_blank')">🔍 Проверки</div>
   <div class="nav-item" onclick="window.open('https://sites.google.com/view/tverskoy-pses/сеанс-психотерапии','_blank')">🧠 Сеансы</div>
   <div class="nav-item" onclick="window.open('https://sites.google.com/view/tverskoy-pses/документооборот-отдела-псэс','_blank')">📚 Документы</div>
-</div>
-<div class="nav-section">
-  <div class="nav-section-title">📂 Форум</div>
-  <div class="nav-sub">
-    <div class="nav-sub-item" onclick="window.open('https://forum.russia.online/threads/pravila-perekhvata-postavok.3/','_blank')">📦 Правила перехвата поставок</div>
-    <div class="nav-sub-item" onclick="window.open('https://forum.russia.online/threads/pravila-gosudarstvennykh-organizatsii.11/#post-85133','_blank')">🏛 ПГО</div>
-    <div class="nav-sub-item" onclick="window.open('https://forum.russia.online/threads/bol-nitsa-ustav.501/','_blank')">🏥 Устав больницы</div>
+  <div class="nav-section">
+    <div class="nav-section-header" onclick="var f=this.nextElementSibling; var b=f.style.display==='none'||!f.style.display; f.style.display=b?'grid':'none'; this.querySelector('.nav-section-arrow').style.transform=b?'rotate(180deg)':'';">
+      <span>📂 Форум</span>
+      <span class="nav-section-arrow">▼</span>
+    </div>
+    <div class="nav-sub">
+      <div class="nav-sub-item" onclick="window.open('https://forum.russia.online/threads/pravila-perekhvata-postavok.3/','_blank')">📦 Правила перехвата поставок</div>
+      <div class="nav-sub-item" onclick="window.open('https://forum.russia.online/threads/pravila-gosudarstvennykh-organizatsii.11/#post-85133','_blank')">🏛 ПГО</div>
+      <div class="nav-sub-item" onclick="window.open('https://forum.russia.online/threads/bol-nitsa-ustav.501/','_blank')">🏥 Устав больницы</div>
+    </div>
   </div>
-</div>
-<div class="nav-section">
-  <div class="nav-section-title">📎 Discord</div>
-  <div class="nav-sub">
-    <div class="nav-sub-item" onclick="window.open('https://discord.com/channels/1538939092929216603/1542667629599395851','_blank')">📝 Инструктажи</div>
-    <div class="nav-sub-item" onclick="window.open('https://discord.com/channels/1538939092929216603/1540466220837380217','_blank')">✏️ Экзамены</div>
-    <div class="nav-sub-item" onclick="window.open('https://discord.com/channels/1538939092929216603/1538939110469931132','_blank')">📈 Отчёты на повышение</div>
-    <div class="nav-sub-item" onclick="window.open('https://discord.com/channels/1538939092929216603/1540083930487726160','_blank')">🗓 Недельные отчёты</div>
+  <div class="nav-section">
+    <div class="nav-section-header" onclick="var d=this.nextElementSibling; var c=d.style.display==='none'||!d.style.display; d.style.display=c?'grid':'none'; this.querySelector('.nav-section-arrow').style.transform=c?'rotate(180deg)':'';">
+      <span>📎 Discord</span>
+      <span class="nav-section-arrow">▼</span>
+    </div>
+    <div class="nav-sub">
+      <div class="nav-sub-item" onclick="window.open('https://discord.com/channels/1538939092929216603/1542667629599395851','_blank')">📝 Инструктажи</div>
+      <div class="nav-sub-item" onclick="window.open('https://discord.com/channels/1538939092929216603/1540466220837380217','_blank')">✏️ Экзамены</div>
+      <div class="nav-sub-item" onclick="window.open('https://discord.com/channels/1538939092929216603/1538939110469931132','_blank')">📈 Отчёты на повышение</div>
+      <div class="nav-sub-item" onclick="window.open('https://discord.com/channels/1538939092929216603/1540083930487726160','_blank')">🗓 Недельные отчёты</div>
+    </div>
   </div>
 </div>
 </body>

@@ -78,13 +78,17 @@
     </div>
   </div>
 </div>
- <script>
+<script>
   function sendHeight() {
     window.parent.postMessage({ height: document.body.scrollHeight }, '*');
   }
   window.onload = sendHeight;
   window.onresize = sendHeight;
+
+  var observer = new MutationObserver(sendHeight);
+  observer.observe(document.body, { childList: true, subtree: true, attributes: true });
 </script>
+
 
 </body>
 </html>

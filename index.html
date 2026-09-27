@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Навигация ПСЭС</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: transparent; font-family: 'Georgia', serif; }
+</style>
+</head>
+<body>
+<div style="width: 100%; box-sizing: border-box; font-family: 'Georgia', serif;">
+  <div
+    style="
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px 20px;
+      background: linear-gradient(135deg, #1a1a2e, #0f3460);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      cursor: pointer;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+      user-select: none;
+    "
+    onclick="var m=document.getElementById('pses-menu'); var a=m.style.display==='none'||!m.style.display; m.style.display=a?'grid':'none'; this.querySelector('.pses-arrow').style.transform=a?'rotate(180deg)':'rotate(0)';"
+  >
+    <span style="font-size: 15px; color: #f5f5f5; font-weight: bold; letter-spacing: 1px;">
+      🧭 Навигация по разделам
+    </span>
+    <span class="pses-arrow" style="font-size: 14px; color: #e94560; transition: transform 0.25s;">▼</span>
+  </div>
+  <div id="pses-menu" style="display: none; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; padding: 14px; margin-top: 6px; background: linear-gradient(135deg, #16213e, #0f3460); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; box-shadow: 0 8px 30px rgba(0,0,0,0.4);">
+    <div onclick="window.open('https://sites.google.com/view/tverskoy-pses','_blank')" style="display:flex;align-items:center;gap:8px;padding:10px 16px;font-size:14px;color:#a0a0b0;cursor:pointer;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:10px;transition:all 0.2s;">🏠 Главная</div>
+    <div onclick="window.open('https://sites.google.com/view/tverskoy-pses/стажировка-отдела-псэс','_blank')" style="display:flex;align-items:center;gap:8px;padding:10px 16px;font-size:14px;color:#a0a0b0;cursor:pointer;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:10px;transition:all 0.2s;">📋 Стажировка</div>
+    <div onclick="window.open('https://sites.google.com/view/tverskoy-pses/система-баллов','_blank')" style="display:flex;align-items:center;gap:8px;padding:10px 16px;font-size:14px;color:#a0a0b0;cursor:pointer;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:10px;transition:all 0.2s;">⭐ Баллы</div>
+    <div onclick="window.open('https://sites.google.com/view/tverskoy-pses/калькулятор-баллов','_blank')" style="display:flex;align-items:center;gap:8px;padding:10px 16px;font-size:14px;color:#a0a0b0;cursor:pointer;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:10px;transition:all 0.2s;">🧮 Калькулятор</div>
+    <div onclick="window.open('https://sites.google.com/view/tverskoy-pses/система-повышения','_blank')" style="display:flex;align-items:center;gap:8px;padding:10px 16px;font-size:14px;color:#a0a0b0;cursor:pointer;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:10px;transition:all 0.2s;">📈 Повышения</div>
+    <div onclick="window.open('https://sites.google.com/view/tverskoy-pses/дата-и-время-проведения-проверок','_blank')" style="display:flex;align-items:center;gap:8px;padding:10px 16px;font-size:14px;color:#a0a0b0;cursor:pointer;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:10px;transition:all 0.2s;">🔍 Проверки</div>
+    <div onclick="window.open('https://sites.google.com/view/tverskoy-pses/сеанс-психотерапии','_blank')" style="display:flex;align-items:center;gap:8px;padding:10px 16px;font-size:14px;color:#a0a0b0;cursor:pointer;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:10px;transition:all 0.2s;">🧠 Сеансы</div>
+    <div onclick="window.open('https://sites.google.com/view/tverskoy-pses/документооборот-отдела-псэс','_blank')" style="display:flex;align-items:center;gap:8px;padding:10px 16px;font-size:14px;color:#a0a0b0;cursor:pointer;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:10px;transition:all 0.2s;">📚 Документы</div>
+
+    <!-- Форум -->
+    <div style="grid-column: 1 / -1; margin-top: 6px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.1);">
+      <div
+        onclick="var f=document.getElementById('pses-forum'); var b=f.style.display==='none'||!f.style.display; f.style.display=b?'grid':'none'; this.querySelector('.pses-forum-arrow').style.transform=b?'rotate(180deg)':'rotate(0)';"
+        style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 16px;font-size:14px;color:#6ba6ff;cursor:pointer;background:rgba(107,166,255,0.08);border:1px solid rgba(107,166,255,0.2);border-radius:10px;user-select:none;"
+      >
+        <span>📂 Форум</span>
+        <span class="pses-forum-arrow" style="font-size:12px;transition:transform 0.25s;">▼</span>
+      </div>
+      <div id="pses-forum" style="display:none;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;margin-top:8px;">
+        <div onclick="window.open('https://forum.russia.online/threads/pravila-perekhvata-postavok.3/','_blank')" style="display:flex;align-items:center;gap:8px;padding:8px 14px;font-size:13px;color:#a0a0b0;cursor:pointer;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:8px;">📦 Правила перехвата поставок</div>
+        <div onclick="window.open('https://forum.russia.online/threads/pravila-gosudarstvennykh-organizatsii.11/#post-85133','_blank')" style="display:flex;align-items:center;gap:8px;padding:8px 14px;font-size:13px;color:#a0a0b0;cursor:pointer;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:8px;">🏛 ПГО</div>
+        <div onclick="window.open('https://forum.russia.online/threads/bol-nitsa-ustav.501/','_blank')" style="display:flex;align-items:center;gap:8px;padding:8px 14px;font-size:13px;color:#a0a0b0;cursor:pointer;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:8px;">🏥 Устав больницы</div>
+      </div>
+    </div>
+
+    <!-- Discord -->
+    <div style="grid-column: 1 / -1; margin-top: 6px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.1);">
+      <div
+        onclick="var d=document.getElementById('pses-discord'); var c=d.style.display==='none'||!d.style.display; d.style.display=c?'grid':'none'; this.querySelector('.pses-discord-arrow').style.transform=c?'rotate(180deg)':'rotate(0)';"
+        style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 16px;font-size:14px;color:#6ba6ff;cursor:pointer;background:rgba(107,166,255,0.08);border:1px solid rgba(107,166,255,0.2);border-radius:10px;user-select:none;"
+      >
+        <span>📎 Discord</span>
+        <span class="pses-discord-arrow" style="font-size:12px;transition:transform 0.25s;">▼</span>
+      </div>
+      <div id="pses-discord" style="display:none;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;margin-top:8px;">
+        <div onclick="window.open('https://discord.com/channels/1538939092929216603/1542667629599395851','_blank')" style="display:flex;align-items:center;gap:8px;padding:8px 14px;font-size:13px;color:#a0a0b0;cursor:pointer;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:8px;">📝 Инструктажи</div>
+        <div onclick="window.open('https://discord.com/channels/1538939092929216603/1540466220837380217','_blank')" style="display:flex;align-items:center;gap:8px;padding:8px 14px;font-size:13px;color:#a0a0b0;cursor:pointer;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:8px;">✏️ Экзамены</div>
+        <div onclick="window.open('https://discord.com/channels/1538939092929216603/1538939110469931132','_blank')" style="display:flex;align-items:center;gap:8px;padding:8px 14px;font-size:13px;color:#a0a0b0;cursor:pointer;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:8px;">📈 Отчёты на повышение</div>
+        <div onclick="window.open('https://discord.com/channels/1538939092929216603/1540083930487726160','_blank')" style="display:flex;align-items:center;gap:8px;padding:8px 14px;font-size:13px;color:#a0a0b0;cursor:pointer;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:8px;">🗓 Недельные отчёты</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Подвал -->
+  <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 13px; color: #a0a0b0; text-align: center;">
+    <span style="color: #e94560;">💻 Разработка сайта:</span> Старший состав ПСЭС
+  </div>
+</div>
+</body>
+</html>
